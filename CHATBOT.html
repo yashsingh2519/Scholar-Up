@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Granth Guru </title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;900&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transform: translate(-50%, -50%);
+            z-index: -1;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            text-align: center;
+            z-index: 1;
+        }
+
+        header {
+            margin-bottom: 30px;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            font-weight: 900;
+            letter-spacing: 2px;
+        }
+
+        .chatbot {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(153, 35, 35, 0.2);
+        }
+
+        .chatbot-image img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+        }
+
+        .chatbot-body {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .chatbot-messages {
+            width: 100%;
+            max-height: 300px;
+            overflow-y: auto;
+            text-align: left;
+            margin-bottom: 20px;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+        }
+
+        .message {
+            padding: 10px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+
+        .bot {
+            background: #672728;
+        }
+
+        .user {
+            background: #2b5876;
+            align-self: flex-end;
+        }
+
+        .chatbot-input {
+            width: 100%;
+            display: flex;
+            align-items: center;
+        }
+
+        #chatbot-query {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            border-radius: 50px;
+            outline: none;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            margin-right: 10px;
+        }
+
+        #send-message {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 50px;
+            background: #443768;
+            color: white;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        #send-message:hover {
+            background: #2b5876;
+        }
+    </style>
+</head>
+<body>
+    <video autoplay muted loop>
+        <source src="C:/Users/Yash/Downloads/9867271-uhd_3840_2160_24fps.mp4" type="video/mp4">
+    </video>
+    <div class="container">
+        <header>
+            <h1>Granth Guru</h1>
+        </header>
+        <main>
+            <div class="chatbot">
+                <div class="chatbot-image">
+                    <img src="D:\webpages\granthguru.jpg" alt="Chatbot">
+                </div>
+                <div class="chatbot-body">
+                    <div class="chatbot-messages" id="chatbot-messages">
+                        <div class="message bot">Hello! How can I assist you today?</div>
+                    </div>
+                    <div class="chatbot-input">
+                        <input type="text" id="chatbot-query" placeholder="Type your query here...">
+                        <button id="send-message"><i class="fas fa-paper-plane"></i>Send</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script>
+        document.getElementById('send-message').addEventListener('click', function() {
+            const queryInput = document.getElementById('chatbot-query');
+            const query = queryInput.value.trim();
+            if (query) {
+                addMessage(query, 'user');
+                queryInput.value = '';
+                fetch('http://127.0.0.1:80/chatbot', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ query: query })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.response) {
+                        addMessage(data.response, 'bot');
+                    } else if (data.error) {
+                        addMessage(data.error, 'bot');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    addMessage('There was an error processing your request.', 'bot');
+                });
+            }
+        });
+
+        function addMessage(text, sender) {
+            const messagesContainer = document.getElementById('chatbot-messages');
+            const messageElement = document.createElement('div');
+            messageElement.classList.add('message', sender);
+            messageElement.innerText = text;
+            messagesContainer.appendChild(messageElement);
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        }
+    </script>
+</body>
+</html>

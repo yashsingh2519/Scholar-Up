@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css">
+    <title>Scholar Up</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            width: 100%;
+            margin: 0 auto;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background: #843fc9;
+            color: white;
+        }
+        .logo {
+            font-size: 1.5em;
+            display: flex;
+            align-items: center;
+        }
+        .logo img {
+            height: 50px; /* Adjust the height as needed */
+            margin-right: 10px;
+        }
+        .navItems, .links {
+            display: flex;
+            list-style: none;
+        }
+        .navItems li, .links a {
+            margin: 0 10px;
+            color: white;
+            text-decoration: none;
+        }
+        .navItems li a, .links a {
+            color: white; /* Link color */
+        }
+        .header {
+            text-align: center;
+            padding: 50px;
+            background-image: url("https://img.freepik.com/premium-photo/graduation-cap-diploma-concept-academic-achievement-education_1375-30612.jpg"); 
+            background-size: cover;
+            background-position: center;
+            color: white;
+        }
+        .search-bar {
+            max-width: 600px;
+            margin: 20px auto;
+            display: flex;
+        }
+        .search-bar input {
+            flex: 1;
+            padding: 10px;
+            font-size: 1em;
+        }
+        .search-bar button {
+            padding: 10px 20px;
+            font-size: 1em;
+            background: #333;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .categories {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 20px;
+        }
+        .category {
+            background: #f4f4f4;
+            margin: 10px;
+            padding: 20px;
+            flex: 1 1 calc(33.333% - 40px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            text-align: center;
+            cursor: pointer;
+        }
+        .category img {
+            max-width: 100px;
+            margin-bottom: 10px;
+        }
+        .category h2 {
+            margin: 0 0 10px;
+        }
+        .category p {
+            margin: 0;
+        }
+        a {
+            color: inherit; /* Inherit color from parent */
+            text-decoration: none; /* Remove underline */
+        }
+        a:hover {
+            text-decoration: underline; /* Underline on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <div class="logo">
+                <img src="D:\WhatsApp Image 2024-07-29 at 18.42.38_6b6676cc.jpg" alt="Scholar Up Logo">
+                Scholar Up
+            </div>
+            <ul class="navItems">
+                <li><a href="file:///D:/webpages/detail.html">Scholarships</a></li>
+                <li><a href="#">Student Services</a></li>
+                <li><a href="#">Career Guidance</a></li>
+                <li><a href="file:///D:/webpages/CHATBOT.html">Chat Bot</a></li>
+            </ul>
+            <div class="links">
+                <a href="https://www.linkedin.com/company/scholar-up7/?lipi=urn%3Ali%3Apage%3Ad_flagship3_search_srp_all%3B%2F%2F8tJCUESP%2BGSnWTIMwOIw%3D%3D"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+                <a href="https://www.instagram.com/scholarup43?igsh=MWg5MnM3NzZ3a2R0MQ=="><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
+        </nav>
+        <div class="header">
+            <h1>Scholar Up - UNLOCKING POTENTIAL PATHS</h1>
+            <p>Empowering students with scholarships and mentorship opportunities.</p>
+            <div class="search-bar">
+                <input type="text" placeholder="Search scholarships and other education funding opportunities">
+                <button>Search</button>
+            </div>
+        </div>
+        <div class="categories">
+            <div class="category">
+                <img src="https://cracku.in/latest-govt-jobs/wp-content/uploads/2019/07/Government-of-India.jpg" alt="Means Based"> <!-- Replace with actual image URL -->
+                <h2><a href="#">Government </a></h2>
+                <p>Explore Government scholarships.</p>
+            </div>
+            <div class="category">
+                <img src="https://th.bing.com/th/id/OIP.-RnN5DMBO-f8XWhr8HMURAHaHa?rs=1&pid=ImgDetMain" alt="Merit Based"> <!-- Replace with actual image URL -->
+                <h2><a href="#">International </a></h2>
+                <p>Find International scholarships.</p>
+            </div>
+            <div class="category">
+                <img src="https://graphicsfamily.com/wp-content/uploads/edd/2021/02/Scholarship-Logo-Template-Free-Download-scaled.jpg" alt="For Girls"> <!-- Replace with actual image URL -->
+                <h2><a href="#">National</a></h2>
+                <p>Discover National scholarships </p>
+            </div>
+            <div class="category">
+                <img src="https://img.freepik.com/premium-vector/scholarship-symbol-vector-logo-dollar-coin-wearing-graduation-hat-student-loan-money-loan-education_642540-247.jpg?w=2000" alt="School Level"> <!-- Replace with actual image URL -->
+                <h2><a href="#">School Level</a></h2>
+                <p>Check out scholarships for schools.</p>
+            </div>
+            <div class="category">
+                <img src="https://th.bing.com/th/id/OIP.qVfYiguFqKWikeyjSGYtkQHaEo?rs=1&pid=ImgDetMain" alt="Sports Talent"> <!-- Replace with actual image URL -->
+                <h2><a href="#">Sports Talent</a></h2>
+                <p>Learn about sports talent scholarships.</p>
+            </div>
+            <div class="category">
+                <img src="https://w7.pngwing.com/pngs/587/232/png-transparent-hispanic-scholarship-fund-student-college-scholarship-text-people-logo.png" alt="College Level"> <!-- Replace with actual image URL -->
+                <h2><a href="#">College Level</a></h2>
+                <p>Find scholarships for college level.</p>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
